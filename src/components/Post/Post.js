@@ -34,55 +34,57 @@ export default function Post(props) {
 
     <View style={styles.container}>
         <TouchableWithoutFeedback onPress={() => onPlayPausePress()}>
+          <View>
             <Video 
             source={{ uri: post.videoUri }}
             style={styles.video}
             resizeMode="cover"
             isLooping
-            shouldPlay={paused}
+            shouldPlay={paused}            
             />
-        </TouchableWithoutFeedback>
 
-        <View style={styles.uiContainer}>
-          <View style={styles.rightContainer}>
-              <Image style={styles.profilePicture}
-              source={{ uri: post.user.imageUri }}
-              />
+          <View style={styles.uiContainer}>
+            <View style={styles.rightContainer}>
+                <Image style={styles.profilePicture}
+                source={{ uri: post.user.imageUri }}
+                />
 
-              <TouchableOpacity style={styles.iconContainer} onPress={() => onLikePress()}>
-                <AntDesign name='heart' size={38} color={isLiked ? '#EE1D52' : 'white'}/>
-                <Text style={styles.statsLabel}>{post.likes}</Text>
-              </TouchableOpacity>
+                <TouchableOpacity style={styles.iconContainer} onPress={() => onLikePress()}>
+                  <AntDesign name='heart' size={38} color={isLiked ? '#EE1D52' : 'white'}/>
+                  <Text style={styles.statsLabel}>{post.likes}</Text>
+                </TouchableOpacity>
 
-              <View style={styles.iconContainer}>
-                <FontAwesome name='commenting' size={38} color={'white'}/>
-                <Text style={styles.statsLabel}>{post.comments}</Text>
-              </View>
+                <View style={styles.iconContainer}>
+                  <FontAwesome name='commenting' size={38} color={'white'}/>
+                  <Text style={styles.statsLabel}>{post.comments}</Text>
+                </View>
 
-              <View style={styles.iconContainer}>
-                <Fontisto name='share-a' size={33} color={'white'}/>
-                <Text style={styles.statsLabel}>{post.shares}</Text>
-              </View>
+                <View style={styles.iconContainer}>
+                  <Fontisto name='share-a' size={33} color={'white'}/>
+                  <Text style={styles.statsLabel}>{post.shares}</Text>
+                </View>
 
-          </View>
-          
-          <View style={styles.bottomContainer}>
-            <View>
-              <Text style={styles.handle}>@{post.user.username}</Text>            
-              <Text style={styles.description}>{post.description}</Text>     
-              <View style={styles.songRow}>
-                {/* icon */}
-                <Entypo name='beamed-note' size={24} color={'white'}/>
-                {/* name */}
-                <Text style={styles.songName}>{post.songName}</Text>
-              </View>
             </View>
-            <Image style={styles.songImage}
-              source={{ uri: post.songImage }}
-              />
-          </View>
+            
+            <View style={styles.bottomContainer}>
+              <View>
+                <Text style={styles.handle}>@{post.user.username}</Text>            
+                <Text style={styles.description}>{post.description}</Text>     
+                <View style={styles.songRow}>
+                  {/* icon */}
+                  <Entypo name='beamed-note' size={24} color={'white'}/>
+                  {/* name */}
+                  <Text style={styles.songName}>{post.songName}</Text>
+                </View>
+              </View>
+              <Image style={styles.songImage}
+                source={{ uri: post.songImage }}
+                />
+            </View>
 
+          </View>
         </View>
+      </TouchableWithoutFeedback>
         
     </View>
   );

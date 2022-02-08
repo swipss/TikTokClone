@@ -1,9 +1,9 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions,Platform } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
         width: '100%',
-        height: Dimensions.get('window').height + 14 ,
+        height: Platform.OS == 'android' ? Dimensions.get('window').height + 14 : Dimensions.get('window').height - 78  ,
     },
     video: {
         position: 'absolute',
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     },
     topContainer: {
         position: 'absolute',
-        top: 40,
+        top: 45,
         alignSelf: 'center',
         flexDirection: 'row',
         zIndex: 100

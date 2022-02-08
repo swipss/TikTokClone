@@ -7,9 +7,9 @@ import RootNavigation from './src/navigation/navigation';
 
 export default function App() {
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: 'black'}}>
+    <View style={{flex: 1, backgroundColor: 'black'}}>
       <RootNavigation />
-    </SafeAreaView>
+    </View>
     
   );
 }

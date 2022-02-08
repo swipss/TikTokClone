@@ -1,4 +1,4 @@
-import { View, Text, FlatList, Dimensions } from 'react-native';
+import { View, Text, FlatList, Dimensions, Platform } from 'react-native';
 import React from 'react';
 import styles from '../../components/Post/styles';
 
@@ -20,7 +20,7 @@ export default function Home() {
       data={posts}
       renderItem={({item}) => <Post post={item}/>}
       showsVerticalScrollIndicator={false}
-      snapToInterval={Dimensions.get('window').height + 14}
+      snapToInterval={Platform.OS == 'android' ? Dimensions.get('window').height + 14 : Dimensions.get('window').height - 78}
       snapToAlignment={'start'}
       decelerationRate={'fast'}
       />
